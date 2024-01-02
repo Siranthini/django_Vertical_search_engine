@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coventry University CGL Publications</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <main class="main">
+        <div class="wrapper">
+            <h1>CGL Publications Search Engine</h1>
+            <div class="fixed-search-box container-box">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Search articles">
+                    <button type="submit">Search</button>
+                </form>
+                <p class="fetch-time">Records fetched in {{search_time}}</p>
+            </div>
+            <section class="publication-list">
+                {% if search_result %}
+                    {% for document_details in search_result %}
+                        <div class="publication-item container-box">
+                            <h2><a href="{{ document_details.Link }}" target="_blank">{{ document_details.Title }}</a></h2>
+                            <p class="authors">Authors:
+                                {% for author in document_details.Authors_Profile %}
+                                    <a href="{{ author.link }}" target="_blank">{{ author.name }}</a>
+                                    {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+                            <p class="date">Date of Publication: {{ document_details.DateOfPublication }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No results found.</p>
+                {% endif %}
+            </section>
+        </div>
+    </main>
+</body>
+</html>

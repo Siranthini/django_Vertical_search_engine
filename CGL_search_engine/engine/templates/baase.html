@@ -1,0 +1,50 @@
+<style>
+    div {
+        text-align: center;
+    }
+    .search-bar{
+        margin-top: 4%;
+    }
+    .home {
+        /* Add the background image URL here */
+        background-image: url("s4.jpg"); /* Replace 'background.jpg' with the actual image filename */
+        /* Adjust the background properties as needed */
+        background-size: cover;
+        background-position: center;
+        /* Set the background to cover the entire viewport */
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white; 
+		background-attachment: fixed;
+    }
+	h1 {
+        font-size: 48px; /* Increase the font size as desired */
+        color: #333; /* Optional: Set the title color */
+        font-weight: bold; /* Optional: Set the font weight */
+        text-transform: uppercase; /* Optional: Convert title text to uppercase */
+        /* Add any other desired styles for the title */
+    }
+	input[type="text"] {
+            width: 500px; /* Adjust the width as per your requirement */
+            padding: 10px;
+            font-size: 18px;
+	}
+	button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+    }
+	
+</style>
+<div class="home">
+    <h1>CGL Pubications Search Engine</h1>
+    <div class="search-bar">
+        <form method="POST" action="results">
+            <input class="form-control form-control-lg" type="text" placeholder="what are you searching for?" name="search">
+            <button type="submit" class="btn btn-dark">Search</button>
+        </form>
+    </div>
+</div>
+

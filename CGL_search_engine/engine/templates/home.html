@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        div {
+            text-align: top;
+        }
+        .search-bar{
+            margin-top: 4%;
+        }
+        .home {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white; 
+            background-attachment: fixed;
+        }
+        h1 {
+            font-size: 25px; 
+            color: #333; 
+            font-weight: bold; 
+
+        }
+        input[type="text"] {
+                width: 500px; 
+                padding: 10px;
+                font-size: 18px;
+        }
+        button[type="submit"] {
+                padding: 10px 20px;
+                font-size: 18px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="home">
+        <h1>CGL Publications Search Engine</h1>
+        <section class="search-box">
+            <form action="/search" method="GET">
+                <input type="text" name="query" placeholder="Search articles">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
